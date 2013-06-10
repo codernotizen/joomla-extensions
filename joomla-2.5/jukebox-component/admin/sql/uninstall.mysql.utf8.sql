@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS `#_jukebox_performance`;
 DROP TABLE IF EXISTS `#_jukebox_solo_artists`;
 DROP TABLE IF EXISTS `#_jukebox_bands`;
 DROP TABLE IF EXISTS `#_jukebox_cooperations`;
+DROP TABLE IF EXISTS `#_jukebox_types`;
 
 
 

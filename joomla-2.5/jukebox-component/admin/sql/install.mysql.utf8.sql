@@ -1,35 +1,45 @@
 CREATE TABLE IF NOT EXISTS `#_jukebox_artists` (
-    `id` int(10) NOT NULL AUTO_INCREMENT,
+    `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `type` ENUM('solo', 'band', 'cooperation') NOT NULL,
 
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#_jukebox_songs` (
-    `id` int(10) NOT NULL AUTO_INCREMENT,
+    `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL,
 
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#_jukebox_genre` (
-    `id` int(10) NOT NULL AUTO_INCREMENT,
+    `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL,
 
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#_jukebox_hosts` (
-    `id` int(10) NOT NULL AUTO_INCREMENT,
+    `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL,
+    `url` VARCHAR(255) NOT NULL,
 
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#_jukebox_performance` (
-    `id` int(10) NOT NULL AUTO_INCREMENT,
+    `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `host` INT(10) UNSIGNED NOT NULL,
+    `type` INT(10) UNSIGNED NOT NULL,
+    `hostid` VARCHAR(255) NOT NULL,
+    `artist` INT(10) UNSIGNED NOT NULL,
+    `song` INT(10) UNSIGNED NOT NULL,
 
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#_jukebox_solo_artists` (
-    `id` int(10) NOT NULL AUTO_INCREMENT,
+    `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
     `firstname` VARCHAR(255),
 
@@ -37,18 +47,42 @@ CREATE TABLE IF NOT EXISTS `#_jukebox_solo_artists` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#_jukebox_bands` (
-    `id` int(10) NOT NULL AUTO_INCREMENT,
+    `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
 
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#_jukebox_cooperations` (
-    `id` int(10) NOT NULL UNIQUE,
-    `member` int(10) NOT NULL,
+    `id` INT(10) UNSIGNED NOT NULL UNIQUE,
+    `member` INT(10) UNSIGNED NOT NULL,
     `type` ENUM('band', 'solo'),
 
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `#_jukebox_types` (
+    `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(10) NOT NULL,
+
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1; 
+
+
+
+INSERT INTO `#_jukebox_types` VALUES ('flv');
+INSERT INTO `#_jukebox_types` VALUES ('mp4');
+INSERT INTO `#_jukebox_types` VALUES ('ogg');
+INSERT INTO `#_jukebox_types` VALUES ('mp3');
+INSERT INTO `#_jukebox_types` VALUES ('webm');
+
+INSERT INTO `#_jukebox_genre` VALUES ('rock');
+INSERT INTO `#_jukebox_genre` VALUES ('swing');
+INSERT INTO `#_jukebox_genre` VALUES ('country');
+INSERT INTO `#_jukebox_genre` VALUES ('gejaule');
+
+INSERT INTO `#_jukebox_hosts` VALUES ('YouTube', 'youtu.be/');
+
+
 
 
