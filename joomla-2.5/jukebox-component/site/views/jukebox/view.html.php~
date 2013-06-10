@@ -1,0 +1,22 @@
+<?php
+
+defined('_JEXEC') or die('Restricted access');
+
+// import view library
+jimport('joomla.application.component.view');
+
+/**
+ * HTML View class for the Jukebox Component
+ */
+class JukeboxViewJukebox extends JView {
+
+    // overwrite JView display method
+    function display($tpl = null) {
+        
+        // assign data to the view
+        $this->msg = 'I am a jukebox';
+
+        // display view
+        parent::display($tpl);
+    }
+}

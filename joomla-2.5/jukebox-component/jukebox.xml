@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5.0" method="upgrade">
+    <name>COM_JUKEBOX</name>
+    <creationDate>June 2013</creationDate>
+    <author>Matthias Danielzik</author>
+    <authorEmail>freelancer@dertechnokrat.de</authorEmail>
+    <authorUrl>http://codernotizen.wordpress.com</authorUrl>
+    <copyright>Copyright (C) 2013. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later.</license>
+    <version>0.0.4</version>
+    <description>COM_JUKEBOX_XML_DESCRIPTION</description>
+
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <update>
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>jukebox.php</filename>
+        <filename>controller.php</filename>
+        <filename>router.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+        <folder>language</folder>
+    </files>
+
+    <administration>
+        <menu>COM_JUKEBOX</menu>
+
+        <files folder="admin">
+            <filename>index.html</filename>
+            <filename>jukebox.php</filename>
+
+            <folder>sql</folder>
+            <folder>models</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="admin">
+            <language tag="en-GB">language/en-GB/en-GB.com_jukebox.ini</language>
+            <language tag="en-GB">language/en-GB/en-GB.com_jukebox.sys.ini</language>
+            <language tag="de-DE">language/de-DE/de-DE.com_jukebox.ini</language>
+            <language tag="de-DE">language/de-DE/de-DE.com_jukebox.sys.ini</language>
+        </languages>
+    </administration>
+</extension>
+
